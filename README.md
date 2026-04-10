@@ -81,6 +81,8 @@ Here is a brief explanation of the key fields:
 | `version` | The current version of your project, starting at `1.0.0` |
 | `main` | The entry point file for your project (we will use `server.js` instead of the default `index.js`) |
 
+> **Note:** The `npm init -y` command sets `"main"` to `"index.js"` by default. Since our server file is named `server.js`, you can optionally update this field by opening `package.json` and changing `"main": "index.js"` to `"main": "server.js"`. This change has no impact on running the server directly with `node server.js` or `npm start` — the `main` field is only used when your package is imported as a module by other projects.
+
 ---
 
 ## Getting Started — Installing Express.js
@@ -138,7 +140,7 @@ app.listen(PORT, () => {
 | 3 | `const PORT = 3000;` | Defines the port number on which the server will listen for incoming connections |
 | 5–7 | `app.get('/', (req, res) => { ... });` | Defines a GET route handler for the root path (`/`) that returns `Hello world` |
 | 9–11 | `app.get('/good-evening', (req, res) => { ... });` | Defines a GET route handler for the `/good-evening` path that returns `Good evening` |
-| 5, 9 | `res.send(...)` | Sends the specified string as the HTTP response body to the client |
+| 6, 10 | `res.send(...)` | Sends the specified string as the HTTP response body to the client |
 | 13–15 | `app.listen(PORT, () => { ... });` | Starts the server and binds it to port 3000, executing the callback once the server is ready |
 
 ---
